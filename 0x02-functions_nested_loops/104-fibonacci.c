@@ -1,11 +1,5 @@
 #include <stdio.h>
 
-/**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
-
 int main(void)
 {
     unsigned long int a = 1;  // First Fibonacci number
