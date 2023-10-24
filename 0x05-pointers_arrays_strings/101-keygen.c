@@ -10,18 +10,22 @@
 
 // Generates a random character between 'a' and 'z'.
 char generate_random_character() {
-    return (char)('a' + rand() % 26);
+    return (char)('a'  rand() % 26);
 }
 
 // Generates a random valid password for 101-crackme.
 char* generate_random_password() {
-    char* password = malloc(PASSWORD_LENGTH + 1);
+    char* password;
+    int i;
+    int sum;
+
+    // Allocate memory for the password.
+    password = malloc(PASSWORD_LENGTH  1);
     if (password == NULL) {
         return NULL;
     }
 
     // Generate a random password.
-    int i;
     for (i = 0; i < PASSWORD_LENGTH; i++) {
         password[i] = generate_random_character();
     }
@@ -30,9 +34,9 @@ char* generate_random_password() {
     password[PASSWORD_LENGTH] = '\0';
 
     // Check if the sum of the ASCII values of all characters in the password is equal to 2772.
-    int sum = 0;
+    sum = 0;
     for (i = 0; i < PASSWORD_LENGTH; i++) {
-        sum += password[i];
+        sum = password[i];
     }
 
     // If the sum is not equal to 2772, regenerate the password.
@@ -46,11 +50,13 @@ char* generate_random_password() {
 }
 
 int main() {
+    char* password;
+
     // Seed the random number generator.
     srand(time(NULL));
 
     // Generate a random password.
-    char* password = generate_random_password();
+    password = generate_random_password();
 
     // Print the password to the console.
     printf("%s\n", password);
@@ -58,6 +64,5 @@ int main() {
     // Free the memory allocated for the password.
     free(password);
 
-    return 0;
+	return 0;
 }
-
