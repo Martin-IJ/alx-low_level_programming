@@ -1,36 +1,22 @@
-#include "main.h"
-void print_integer(int m);
+void print_number(int n) {
+    // Check if the number is negative.
+    if (n < 0) {
+        // Print a minus sign.
+        _putchar('-');
+        // Convert the number to positive so we can print its digits.
+        n *= -1;
+    }
 
-/**
- * print_number - a function that prints an integer.
- * @n: An input integer
- * Return: Nothing
- */
-void print_number(int n)
-{
-	if (n == 0)
-		_putchar('0');
-	else if (n < 0)
-	{
-		_putchar('-');
-		print_integer(n * -1);
-	}
-	else
-		print_integer(n);
+    // Print the digits of the number, one by one.
+    do {
+        // Get the rightmost digit of the number.
+        int digit = n % 10;
+
+        // Convert the digit to ASCII and print it.
+        _putchar(digit + '0');
+
+        // Divide the number by 10 to remove the rightmost digit.
+        n /= 10;
+    } while (n > 0);
 }
 
-/**
- * print_integer - A function to priting n
- * @m: an input unsigned integer
- * Return: Nothing
- */
-void print_integer(int m)
-{
-	int i = 1000000000;
-
-	for (; i >= 1; i /= 10)
-		if (m / i != 0)
-		{
-			_putchar((m / i) % 10 + '0');
-		}
-}
